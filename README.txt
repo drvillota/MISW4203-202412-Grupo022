@@ -1,0 +1,1 @@
+Bienvenidos al Repositorio para la versión móvil de la app 'Vinilos'.
