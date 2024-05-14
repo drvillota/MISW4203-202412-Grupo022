@@ -19,11 +19,14 @@ import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.platform.LocalContext
+import androidx.compose.ui.res.vectorResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.input.PasswordVisualTransformation
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import com.example.vinilosapp.R
 import com.example.vinilosapp.viewmodels.HomeViewModel
 
 @Composable
@@ -36,9 +39,17 @@ fun HomeScreen(
     val context = LocalContext.current
 
     Column(
-        modifier = Modifier.fillMaxSize(),
-        horizontalAlignment = Alignment.CenterHorizontally,
+        modifier = Modifier
+            .fillMaxSize() // Fills the entire screen
+            .padding(horizontal = 16.dp), // Padding around content
+        verticalArrangement = Arrangement.Center, // Center content vertically
+        horizontalAlignment = Alignment.CenterHorizontally // Center content horizontally
     ) {
+        Icon(
+            imageVector = ImageVector.vectorResource(R.drawable.ic_launcher_foreground), // Replace with your icon resource
+            contentDescription = "Vinilos App Icon",
+            modifier = Modifier.padding(8.dp)
+        )
         Text(
             text = "Vinilos App",
             style = MaterialTheme.typography.titleLarge,
