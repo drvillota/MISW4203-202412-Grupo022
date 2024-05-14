@@ -19,11 +19,6 @@ class AlbumRepository(val application: Application) {
 
     fun getAlbum(
         albumId: Int,
-        name: String,
-        cover: String,
-        releaseDate: String,
-        description: String,
-        genre: String,
         onError:(Throwable?) -> Unit,
         onSuccess: (Album?) -> Unit
     ) {
@@ -31,13 +26,13 @@ class AlbumRepository(val application: Application) {
     }
 
     fun addAlbum(
-        userId: String,
-        title: String,
+        name: String,
+        cover: String,
+        releaseDate: String,
         description: String,
-        timestamp: Timestamp,
-        color: Int = 0,
+        genre: String,
         onComplete: (Boolean) -> Unit,
     ) {
-        NetworkServiceAdapter.addAlbum(userId, title, description, timestamp, color, onComplete)
+        NetworkServiceAdapter.addAlbum(name, cover, releaseDate, description, genre, onComplete)
     }
 }
