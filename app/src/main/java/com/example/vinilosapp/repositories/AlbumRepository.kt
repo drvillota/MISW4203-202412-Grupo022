@@ -16,4 +16,28 @@ class AlbumRepository(val application: Application) {
             onError
         )
     }
+
+    fun getAlbum(
+        albumId: Int,
+        name: String,
+        cover: String,
+        releaseDate: String,
+        description: String,
+        genre: String,
+        onError:(Throwable?) -> Unit,
+        onSuccess: (Album?) -> Unit
+    ) {
+        NetworkServiceAdapter.getAlbum(albumId, onError, onSuccess)
+    }
+
+    fun addAlbum(
+        userId: String,
+        title: String,
+        description: String,
+        timestamp: Timestamp,
+        color: Int = 0,
+        onComplete: (Boolean) -> Unit,
+    ) {
+        NetworkServiceAdapter.addAlbum(userId, title, description, timestamp, color, onComplete)
+    }
 }

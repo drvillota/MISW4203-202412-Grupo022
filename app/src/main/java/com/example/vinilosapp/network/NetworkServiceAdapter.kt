@@ -61,6 +61,16 @@ class NetworkServiceAdapter constructor(context: Context) {
                 Log.d("", it.message.toString())
             }))
     }
+    fun postAlbum(body: JSONObject,onComplete:(resp:JSONObject)->Unit , onError: (error:VolleyError)->Unit){
+        requestQueue.add(postRequest("albums/",
+            body,
+            { response ->
+                onComplete(response)
+            },
+            {
+                onError(it)
+            }))
+    }
     private fun getRequest(path:String, responseListener: Response.Listener<String>, errorListener: Response.ErrorListener): StringRequest {
         return StringRequest(Request.Method.GET, BASE_URL+path, responseListener,errorListener)
     }
